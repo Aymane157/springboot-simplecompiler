@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class controller {
 
     private CompilerService compilerService;
-    @PostMapping
+    @PostMapping("/")
     public String compile(@RequestBody submission request) throws Exception {
         return compilerService.compileSubmission(request);
+    }
+    @PostMapping("/test")
+    public String test(@RequestBody submission request) throws Exception {
+        return compilerService.compileAndTest(request);
     }
 }
